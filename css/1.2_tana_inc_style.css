@@ -1,0 +1,96 @@
+/* ==UserStyle==
+@name           app.tana.inc - 10/21/2022, 9:02:58 PM
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+@-moz-document domain("app.tana.inc") {                    
+    body {
+        font-family: 'IBM Plex Sans';
+        -webkit-font-smoothing: subpixel-antialiased;
+        font-size: 14.5px !important;
+    }
+    
+    /*img.inlineavatar {
+        margin-right: 0.1em;
+    }*/
+
+    mark {
+        background-color: hsla(51, 98%, 81%, .69);
+    }        
+    
+    /* progress bars */
+    div[style*="background-color: rgb(76, 175, 80)"] {
+        background-color: var(--templateColor) !important;
+        opacity: 0.5;
+    }
+    
+    div[style*="background-color: var(--colorUIStroke)"] {
+        opacity: 0.5;
+    }   
+    
+    /* Brighten colors of icons when selected in picker to combat for blue background */
+    div[data-selected] img {
+        filter: brightness(200%);
+    }
+    
+    /* Grayscale and Hide icons in sidebar */
+    .UnifiedSidebar-module_stack__YlsAk .NodeAsDrilldownElement-module_icon__kbAmi {
+        filter: grayscale(100%) brightness(70%);
+        display: none;
+    }
+    
+    /* Reduce colors of dates, icons, and links in checked todos */
+    .itemdone-checkbox .inlineelement.inlinerefnode, .itemdone-checkbox .inlineelement.inlinerefdate, .itemdone-checkbox a {               
+        filter: grayscale(70%);
+    }
+    
+    /* Darken icons on hover (same as text) */
+    .inlinecontent.hastemplate:hover .inlineavatar{
+        filter: brightness(70%);
+    }
+    
+    /* Quotes and block-quotes */
+    :has(span[data-tag="quote"]):not(.expandedNodeContent) > .listContentItem,
+    :has(span[data-tag="block-quote"]):not(.expandedNodeContent) > .listContentItem {
+        background-color: var(--colorReferenceMentionBackground);
+        border-left: 5px solid var(--colorUIStroke);
+        border-left-width: 3px;
+        border-radius: 3px;
+        padding: 8px 14px;
+    }        
+    
+    /* New Zettel */
+    
+    .NodeAsListElement-module_main__kwj8T .listContentItem:has(span[data-tag="literature-note"])  {
+        margin-bottom: 3px;
+    }
+    .listContentItem:has(span[data-tag="literature-note"])  {
+        color: #5f2552a1;
+        font-style: italic;
+    }      
+    
+    :has(span[data-tag="literature-note"]):not(.expandedNodeContent) > .listContentItem {
+        background-color: #f4ebf373;
+        border-left: 5px solid #b2459aa1;
+        border-left-width: 3px;
+        border-radius: 3px;
+        padding: 8px 14px;
+    }  
+    
+    .isDarkMode :has(span[data-tag="literature-note"]):not(.expandedNodeContent) > .listContentItem {
+        background-color: #38173087;
+        color: #c772b4d6;
+        border-left: 5px solid #722e6382;
+    }
+    
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="missing-zettel"]) .editable {
+        color: #D78B37 !important;
+    }  
+    
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="zettel"]) .editable {
+        color: #58814F !important;
+    }    
+}
+

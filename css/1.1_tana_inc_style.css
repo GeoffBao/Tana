@@ -1,0 +1,310 @@
+/* ==UserStyle==
+@name           app.tana.inc - 10/21/2022, 9:02:58 PM
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+@-moz-document domain("app.tana.inc") {
+    :root {
+        --bulletDiameterInner: 6px;
+
+        --size300: 14.5px;
+    }
+
+    body {
+        font-family: 'IBM Plex Sans';
+        -webkit-font-smoothing: subpixel-antialiased;
+        font-size: 14.5px !important;
+    }
+
+    mark {
+        background-color: hsl(51, 98%, 81%);
+    }
+    
+    :has(span[data-tag="quote"]):not(.expandedNodeContent) > .listContentItem,
+    :has(span[data-tag="block-quote"]):not(.expandedNodeContent) > .listContentItem {
+        background-color: var(--colorReferenceMentionBackground);
+        border-left: 5px solid var(--colorUIStroke);
+        border-left-width: 3px;
+        border-radius: 3px;
+        padding: 8px 14px;
+    }
+
+    :has(span[data-tag="delegated"]):not(.expandedNodeContent) > span[data-role="editable"]:before {
+        content: "👤 ← ";
+        color: var(--colorUITextMuted);
+    }
+    
+    :has(span[data-tag="discuss"]):not(.expandedNodeContent) > span[data-role="editable"]:before {
+        content: "💬 ← ";
+        color: var(--colorUITextMuted);
+    }   
+    
+    :has(span[data-tag="personal-goal"]):not(.expandedNodeContent) > span[data-role="editable"]:before {
+        content: "🎯 ";
+    }
+    
+    :has(span[data-tag="spotlight"]):not(.expandedNodeContent) > span[data-role="editable"]:before {
+        content: "💡 → ";
+        color: var(--colorUITextMuted);
+    }
+    
+    :has(span[data-tag="reminder"]):not(.expandedNodeContent) > span[data-role="editable"]:before {
+        content: "🧠 ← ";
+        color: var(--colorUITextMuted);
+    }
+    
+    :has(span[data-tag="1-1"]):not(.expandedNodeContent) > span[data-role="editable"]:before,
+    :has(span[data-tag="3P"]):not(.expandedNodeContent) > span[data-role="editable"]:before,
+    :has(span[data-tag="meeting"]):not(.expandedNodeContent) > span[data-role="editable"]:before {
+        content: "💬 ";   
+    }
+    
+    /* Sections */
+    .listContentItem:has(span[data-tag="highlights-section"]) span[data-role="editable"] {
+        background-color: #F2BD1D !important;
+    }
+
+    .listContentItem:has(span[data-tag="zettel-section"]) span[data-role="editable"] {
+        background-color: #8D6343 !important;
+    }
+
+    .listContentItem:has(span[data-tag="nedap-section"]) span[data-role="editable"] {
+        background-color: #12537A !important;
+    }
+
+    .listContentItem:has(span[data-tag="journal-section"]) span[data-role="editable"] {
+        background-color: #599CC6 !important;
+    }
+
+    .listContentItem:has(span[data-tag="中文-section"]) span[data-role="editable"] {
+        background-color: #FEA443 !important;
+    }
+    
+    .listContentItem:has(span[data-tag="metrics-section"]) span[data-role="editable"] {
+        background-color: #565656 !important;
+    }
+    
+    .listContentItem:has(span[data-tag="spotlight-section"]) span[data-role="editable"] {
+        background-color: #FEA443 !important;
+    }
+
+    .listContentItem:has(span[data-tag="personal-section"]) span[data-role="editable"] {
+        background-color: #1E86C7 !important;
+    }
+
+    .listContentItem:has(span[data-tag="inbox-section"]) span[data-role="editable"] {
+        background-color: #D95F69 !important;
+    }
+
+    .listContentItem:has(span[data-tag="literature-notes"]) span[data-role="editable"] {
+        background-color: #8F3B7B !important;
+    }
+
+    .listContentItem:has(span[data-tag="fleeting-notes"]) span[data-role="editable"] {
+        background-color: #DB86C7 !important;
+    }
+
+    .listContentItem:has(span[data-tag="zettel-notes"]) span[data-role="editable"] {
+        background-color: #73A867 !important;
+    }
+
+
+    .listContentItem:has(span[data-tag="literature-notes"]) .noInteractiveInline {
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 7px;
+        padding-left: 15px;
+        border-left: 1px solid var(--colorUITupleStroke);
+        font-style: italic;
+    }
+    
+    .listContentItem:has(span[data-tag="highlights-section"]) span[data-role="editable"],
+    .listContentItem:has(span[data-tag="zettel-section"]) span[data-role="editable"],
+    .listContentItem:has(span[data-tag="nedap-section"]) span[data-role="editable"],
+    .listContentItem:has(span[data-tag="journal-section"]) span[data-role="editable"],
+    .listContentItem:has(span[data-tag="中文-section"]) span[data-role="editable"],
+    .listContentItem:has(span[data-tag="spotlight-section"]) span[data-role="editable"],
+    .listContentItem:has(span[data-tag="personal-section"]) span[data-role="editable"],
+    .listContentItem:has(span[data-tag="inbox-section"]) span[data-role="editable"],
+    .listContentItem:has(span[data-tag="metrics-section"]) span[data-role="editable"],
+    .listContentItem:has(span[data-tag="literature-notes"]) span[data-role="editable"],
+    .listContentItem:has(span[data-tag="zettel-notes"]) span[data-role="editable"],
+    .listContentItem:has(span[data-tag="fleeting-notes"]) span[data-role="editable"] {
+        padding: 3px 7px;
+        line-height: 2em;
+        border-radius: 3px;
+        color: white;
+        border: none;
+        margin-right: 2px;
+    }
+
+    .listContentItem:has(span[data-tag="highlights-section"]) .inlinerefnode span,
+    .listContentItem:has(span[data-tag="zettel-section"]) .inlinerefnode span,
+    .listContentItem:has(span[data-tag="personal-section"]) .inlinerefnode span,
+    .listContentItem:has(span[data-tag="journal-section"]) .inlinerefnode span,
+    .listContentItem:has(span[data-tag="inbox-section"]) .inlinerefnode span,
+    .listContentItem:has(span[data-tag="metrics-section"]) .inlinerefnode span,
+    .listContentItem:has(span[data-tag="中文-section"]) .inlinerefnode span,
+    .listContentItem:has(span[data-tag="spotlight-section"]) .inlinerefnode span,
+    .listContentItem:has(span[data-tag="nedap-section"]) .inlinerefnode span {
+        background-color: inherit !important;
+        color: white;
+        border: none;
+    }
+
+    /* Low opacity tags */
+    .listContentItem span[data-tag="zettel"],
+    .listContentItem span[data-tag="missing"],
+    .listContentItem span[data-tag="highlights-section"],
+    .listContentItem span[data-tag="zettel-section"],
+    .listContentItem span[data-tag="personal-section"],
+    .listContentItem span[data-tag="nedap-section"],
+    .listContentItem span[data-tag="journal-section"],
+    .listContentItem span[data-tag="inbox-section"],
+    .listContentItem span[data-tag="中文-section"],
+    .listContentItem span[data-tag="spotlight-section"],
+    .listContentItem span[data-tag="metrics-section"],
+    .listContentItem span[data-tag="literature-notes"],
+    .listContentItem span[data-tag="zettel-notes"],
+    .listContentItem span[data-tag="fleeting-notes"] {
+        opacity: 0.4
+    }
+
+    .listContentItem:hover span[data-tag="zettel"],
+    .listContentItem:hover span[data-tag="missing"],
+    .listContentItem:hover span[data-tag="highlights-section"],
+    .listContentItem:hover span[data-tag="zettel-section"],
+    .listContentItem:hover span[data-tag="personal-section"],
+    .listContentItem:hover span[data-tag="nedap-section"],
+    .listContentItem:hover span[data-tag="journal-section"],
+    .listContentItem:hover span[data-tag="inbox-section"],
+    .listContentItem:hover span[data-tag="metrics-section"],
+    .listContentItem:hover span[data-tag="中文-section"],
+    .listContentItem:hover span[data-tag="spotlight-section"],
+    .listContentItem:hover span[data-tag="literature-notes"],
+    .listContentItem:hover span[data-tag="zettel-notes"],
+    .listContentItem:hover span[data-tag="fleeting-notes"] {
+        opacity: 1
+    }
+
+    /* Custom Zettel Styling */
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="zettel"]) span[data-role="editable"] {
+        background: #95DB851E;
+        padding: 3px 10px 3px 75px;
+        line-height: 2em;
+        border-radius: 3px;
+        position: relative;
+        color: #58814F !important;
+    }
+       
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="zettel"]) .outerEdgeActive .editable:not(.outerEdgeEditable) {
+        border: 1px solid #95db8578;
+        border-left: 0px;
+        box-shadow: none;
+        animation: none;
+        position: relative;
+        z-index: 1;
+    }
+
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="zettel"]) span[data-role="editable"]:before {
+        content: 'Zettel';
+        color: #FFFFFF;
+        background-color: #95DB85;
+        border-radius: 3px 0 0 3px;
+        padding-left: 10px;
+        line-height: 26px;
+
+        left: 0px;
+        top: 0%;
+        position: absolute;
+        pointer-events: none;
+        width: 55px;
+    }
+    
+    .isDarkMode div[data-panel-content="true"] .listContentItem:has(span[data-tag="zettel"]) span[data-role="editable"]:before {
+        background-color: #95db857a;
+        color: #ffffffc4;
+    }
+
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="zettel"]) span[data-role="editable"]:after {
+        content: '';
+        color: #FFFFFF;
+
+        left: 55px;
+        top: 0%;
+        position: absolute;
+        pointer-events: none;
+
+        width: 0;
+        height: 0;
+        border-top: 13px solid transparent;
+        border-bottom: 13px solid transparent;
+
+        border-left: 13px solid #95DB85;
+    }
+    
+    .isDarkMode div[data-panel-content="true"] .listContentItem:has(span[data-tag="zettel"]) span[data-role="editable"]:after {
+        border-left: 13px solid #95db857a;
+    }
+
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="missing"]) span[data-role="editable"] {
+        background: #FEA4431E;
+        padding: 3px 10px 3px 75px;
+        line-height: 2em;
+        border-radius: 3px;
+        position: relative;
+        color: #D78B37 !important;
+    }   
+    
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="missing"]) .outerEdgeActive .editable:not(.outerEdgeEditable) {
+        border: 1px solid #FEA44378;
+        border-left: 0px;
+        box-shadow: none;
+        animation: none;
+        position: relative;
+        z-index: 1;
+    }
+
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="missing"]) span[data-role="editable"]:before {
+        content: 'Zettel';
+        color: #FFFFFF;
+        background-color: #FEA443;
+        border-radius: 3px 0 0 3px;
+        padding-left: 10px;
+        line-height: 26px;
+
+        left: 0px;
+        top: 0%;
+        position: absolute;
+        pointer-events: none;
+        width: 55px;
+    }
+    
+    .isDarkMode div[data-panel-content="true"] .listContentItem:has(span[data-tag="missing"]) span[data-role="editable"]:before {
+        background-color: #FEA4437a;
+    }
+
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="missing"]) span[data-role="editable"]:after {
+        content: '';
+        color: #FFFFFF;
+
+        left: 55px;
+        top: 0%;
+        position: absolute;
+        pointer-events: none;
+
+        width: 0;
+        height: 0;
+        border-top: 13px solid transparent;
+        border-bottom: 13px solid transparent;
+
+        border-left: 13px solid #FEA443;
+    }
+    
+    .isDarkMode div[data-panel-content="true"] .listContentItem:has(span[data-tag="missing"]) span[data-role="editable"]:after {
+        border-left: 13px solid #FEA4437a;
+    }
+}
