@@ -1,56 +1,57 @@
 /* ==UserStyle==
-@name           app.tana.inc - 10/21/2022, 9:02:58 PM
+@name           app.tana.inc - 01/21/2024, 19:02:58 PM
 @namespace      github.com/openstyles/stylus
-@version        1.0.0
+@version        2.1.0
 @description    A new userstyle
-@author         Me
+@author         Eason Bao
 ==/UserStyle== */
-@-moz-document domain("app.tana.inc") {                    
+@-moz-document domain("app.tana.inc") {
     body {
         font-family: 'IBM Plex Sans';
         -webkit-font-smoothing: subpixel-antialiased;
         font-size: 14.5px !important;
     }
-    
+
     /*img.inlineavatar {
         margin-right: 0.1em;
     }*/
-
     mark {
         background-color: hsla(51, 98%, 81%, .69);
-    }        
-    
+    }
+
     /* progress bars */
     div[style*="background-color: rgb(76, 175, 80)"] {
         background-color: var(--templateColor) !important;
         opacity: 0.5;
     }
-    
+
     div[style*="background-color: var(--colorUIStroke)"] {
         opacity: 0.5;
-    }   
-    
+    }
+
     /* Brighten colors of icons when selected in picker to combat for blue background */
     div[data-selected] img {
         filter: brightness(200%);
     }
-    
+
     /* Grayscale and Hide icons in sidebar */
     .UnifiedSidebar-module_stack__YlsAk .NodeAsDrilldownElement-module_icon__kbAmi {
         filter: grayscale(100%) brightness(70%);
         display: none;
     }
-    
+
     /* Reduce colors of dates, icons, and links in checked todos */
-    .itemdone-checkbox .inlineelement.inlinerefnode, .itemdone-checkbox .inlineelement.inlinerefdate, .itemdone-checkbox a {               
+    .itemdone-checkbox .inlineelement.inlinerefnode,
+    .itemdone-checkbox .inlineelement.inlinerefdate,
+    .itemdone-checkbox a {
         filter: grayscale(70%);
     }
-    
+
     /* Darken icons on hover (same as text) */
-    .inlinecontent.hastemplate:hover .inlineavatar{
+    .inlinecontent.hastemplate:hover .inlineavatar {
         filter: brightness(70%);
     }
-    
+
     /* Quotes and block-quotes */
     :has(span[data-tag="quote"]):not(.expandedNodeContent) > .listContentItem,
     :has(span[data-tag="block-quote"]):not(.expandedNodeContent) > .listContentItem {
@@ -59,38 +60,280 @@
         border-left-width: 3px;
         border-radius: 3px;
         padding: 8px 14px;
-    }        
-    
+        font-style: Italic;
+    }
+
     /* New Zettel */
-    
-    .NodeAsListElement-module_main__kwj8T .listContentItem:has(span[data-tag="literature-note"])  {
+    .NodeAsListElement-module_main__kwj8T .listContentItem:has(span[data-tag="literature-note"]) {
         margin-bottom: 3px;
     }
-    .listContentItem:has(span[data-tag="literature-note"])  {
+    .listContentItem:has(span[data-tag="literature-note"]) {
         color: #5f2552a1;
         font-style: italic;
-    }      
-    
+    }
+
     :has(span[data-tag="literature-note"]):not(.expandedNodeContent) > .listContentItem {
         background-color: #f4ebf373;
         border-left: 5px solid #b2459aa1;
         border-left-width: 3px;
         border-radius: 3px;
         padding: 8px 14px;
-    }  
-    
+    }
+
     .isDarkMode :has(span[data-tag="literature-note"]):not(.expandedNodeContent) > .listContentItem {
         background-color: #38173087;
         color: #c772b4d6;
         border-left: 5px solid #722e6382;
     }
-    
+
     div[data-panel-content="true"] .listContentItem:has(span[data-tag="missing-zettel"]) .editable {
         color: #D78B37 !important;
-    }  
-    
+    }
+
     div[data-panel-content="true"] .listContentItem:has(span[data-tag="zettel"]) .editable {
         color: #58814F !important;
-    }    
-}
+    }
+    
+    /* ++++++++++++++ added by eason bao @20250114 ++++++++++++++++++++*/
 
+    /* Custom Zettel Styling */
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="zettel"]) span[data-role="editable"] {
+        background: #95DB851E;
+        padding: 3px 10px 3px 75px;
+        line-height: 2em;
+        border-radius: 3px;
+        position: relative;
+        color: #58814F !important;
+    }
+   
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="zettel"]) .outerEdgeActive .editable:not(.outerEdgeEditable) {
+        border: 1px solid #95db8578;
+        border-left: 0px;
+        box-shadow: none;
+        animation: none;
+        position: relative;
+        z-index: 1;
+    }
+
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="zettel"]) span[data-role="editable"]:before {
+        content: 'Zettel';
+        color: #FFFFFF;
+        background-color: #95DB85;
+        border-radius: 3px 0 0 3px;
+        padding-left: 10px;
+        line-height: 26px;
+
+        left: 0px;
+        top: 0%;
+        position: absolute;
+        pointer-events: none;
+        width: 55px;
+    }
+
+    .isDarkMode div[data-panel-content="true"] .listContentItem:has(span[data-tag="zettel"]) span[data-role="editable"]:before {
+        background-color: #95db857a;
+        color: #ffffffc4;
+    }
+
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="zettel"]) span[data-role="editable"]:after {
+        content: '';
+        color: #FFFFFF;
+
+        left: 55px;
+        top: 0%;
+        position: absolute;
+        pointer-events: none;
+
+        width: 0;
+        height: 0;
+        border-top: 13px solid transparent;
+        border-bottom: 13px solid transparent;
+
+        border-left: 13px solid #95DB85;
+    }
+
+    .isDarkMode div[data-panel-content="true"] .listContentItem:has(span[data-tag="zettel"]) span[data-role="editable"]:after {
+        border-left: 13px solid #95db857a;
+    }
+
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="missing-zettel"]) span[data-role="editable"] {
+        background: #FEA4431E;
+        padding: 3px 10px 3px 75px;
+        line-height: 2em;
+        border-radius: 3px;
+        position: relative;
+        color: #D78B37 !important;
+    }   
+
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="missing-zettel"]) .outerEdgeActive .editable:not(.outerEdgeEditable) {
+        border: 1px solid #FEA44378;
+        border-left: 0px;
+        box-shadow: none;
+        animation: none;
+        position: relative;
+        z-index: 1;
+    }
+
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="missing-zettel"]) span[data-role="editable"]:before {
+        content: 'Zettel';
+        color: #FFFFFF;
+        background-color: #FEA443;
+        border-radius: 3px 0 0 3px;
+        padding-left: 10px;
+        line-height: 26px;
+
+        left: 0px;
+        top: 0%;
+        position: absolute;
+        pointer-events: none;
+        width: 55px;
+    }
+
+    .isDarkMode div[data-panel-content="true"] .listContentItem:has(span[data-tag="missing-zettel"]) span[data-role="editable"]:before {
+        background-color: #FEA4437a;
+    }
+
+    div[data-panel-content="true"] .listContentItem:has(span[data-tag="missing-zettel"]) span[data-role="editable"]:after {
+        content: '';
+        color: #FFFFFF;
+
+        left: 55px;
+        top: 0%;
+        position: absolute;
+        pointer-events: none;
+
+        width: 0;
+        height: 0;
+        border-top: 13px solid transparent;
+        border-bottom: 13px solid transparent;
+
+        border-left: 13px solid #FEA443;
+    }
+
+    .isDarkMode div[data-panel-content="true"] .listContentItem:has(span[data-tag="missing-zettel"]) span[data-role="editable"]:after {
+        border-left: 13px solid #FEA4437a;
+    }
+    /* ---------------- added by eason bao @20250114 ---------------- */
+    /* 基础边距设置 */
+    .NodeAsListElement-module_main__kwj8T .listContentItem:has(span[data-tag="tweet"],span[data-tag="x-post"]) {
+        margin-bottom: 3px;
+    }
+
+    /* 基础文本样式 */
+    .listContentItem:has(span[data-tag="tweet"],span[data-tag="x-post"]) {
+        color: #1DA1F2;  /* Twitter 标志性蓝色 */
+        font-style: normal;  /* 不使用斜体，保持推文的清晰度 */
+    }
+
+    /* 主要样式 - 亮色模式 */
+    :has(span[data-tag="tweet"],span[data-tag="x-post"]):not(.expandedNodeContent) > .listContentItem {
+        /* 轻微的蓝色背景 */
+        background-color: #F8FAFF;
+        /* 左侧边框使用 Twitter 蓝 */
+        border-left: 5px solid #1DA1F2;
+        border-left-width: 3px;
+        border-radius: 8px;  /* 更圆润的边角，符合 Twitter 风格 */
+        padding: 12px 16px;
+        /* 细微的阴影效果 */
+        box-shadow: 0 2px 6px rgba(29, 161, 242, 0.1);
+        /* 添加内容引用样式 */
+        position: relative;
+    }
+
+    /* 添加引用标记 */
+    :has(span[data-tag="tweet"],span[data-tag="x-post"]):not(.expandedNodeContent) > .listContentItem::before {
+        content: '"';
+        position: absolute;
+        left: 6px;
+        top: -5px;
+        font-size: 24px;
+        color: #1DA1F2;
+        opacity: 0.2;
+    }
+
+    /* 深色模式适配 */
+    .isDarkMode :has(span[data-tag="tweet"],span[data-tag="x-post"]):not(.expandedNodeContent) > .listContentItem {
+        background-color: #15202B;  /* Twitter 深色模式背景色 */
+        color: #FFFFFF;
+        border-left: 5px solid #1DA1F2;
+        /* 深色模式下的阴影 */
+        box-shadow: 0 2px 6px rgba(29, 161, 242, 0.05);
+    }
+
+    /* 悬停效果 */
+    :has(span[data-tag="tweet"],span[data-tag="x-post"]):not(.expandedNodeContent) > .listContentItem:hover {
+        background-color: #F0F8FF;
+        transition: all 0.2s ease;
+        /* 悬停时微微上浮的效果 */
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(29, 161, 242, 0.15);
+    }
+
+    /* 深色模式悬停效果 */
+    .isDarkMode :has(span[data-tag="tweet"],span[data-tag="x-post"]):not(.expandedNodeContent) > .listContentItem:hover {
+        background-color: #1C2732;
+        box-shadow: 0 4px 8px rgba(29, 161, 242, 0.1);
+    }
+
+    /* 可选：添加小图标 */
+    :has(span[data-tag="tweet"],span[data-tag="x-post"]):not(.expandedNodeContent) > .listContentItem::after {
+        content: '🐦';  /* Twitter 小鸟表情符号 */
+        position: absolute;
+        right: 12px;
+        bottom: 8px;
+        font-size: 14px;
+        opacity: 0.5;
+    }
+
+    /* 主要内容样式 add for shortcut-note, voice-note and youtube-note */
+    .NodeAsListElement-module_main__kwj8T .listContentItem:has(span[data-tag="shortcut-note"],span[data-tag="fleeting-note"],span[data-tag="voice-note"]) {
+        margin-bottom: 3px;
+    }
+
+    .listContentItem:has(span[data-tag="shortcut-note"],span[data-tag="fleeting-note"],span[data-tag="voice-note"]) {
+        background: #FFF9E5;  /* 浅米黄色背景 */
+        color: #000000 !important;  /* 黑色文字 */
+        font-style: normal;
+    }
+
+    /* 非展开状态的列表项样式 */
+    :has(span[data-tag="shortcut-note"],span[data-tag="fleeting-note"],span[data-tag="voice-note"]):not(.expandedNodeContent) > .listContentItem {
+        background-color: #FFF9E5;  /* 浅米黄色背景 */
+        border-left: 5px solid #e5ae07;
+        border-left-width: 3px;
+        border-radius: 3px;
+        padding: 8px 14px;
+    }
+
+    /* 深色模式下的样式 */
+    .isDarkMode :has(span[data-tag="shortcut-note"],span[data-tag="fleeting-note"],span[data-tag="voice-note"]):not(.expandedNodeContent) > .listContentItem {
+        background-color: #FFF9E5;  /* 保持相同的背景色 */
+        color: #000000;
+        border-left: 5px solid #e5ae07;
+    }
+
+    /* 悬停效果 */
+    :has(span[data-tag="shortcut-note"],span[data-tag="fleeting-note"],span[data-tag="voice-note"]):not(.expandedNodeContent) > .listContentItem:hover {
+        background-color: #FFF5D6;  /* 稍微深一点的米黄色 */
+        transition: all 0.2s ease;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(229, 174, 7, 0.1);
+    }
+
+    /* 深色模式悬停效果 */
+    .isDarkMode :has(span[data-tag="shortcut-note"],span[data-tag="fleeting-note"],span[data-tag="voice-note"]):not(.expandedNodeContent) > .listContentItem:hover {
+        background-color: #FFF5D6;
+        box-shadow: 0 4px 8px rgba(229, 174, 7, 0.08);
+    }
+
+    /* 点击效果 */
+    :has(span[data-tag="shortcut-note"],span[data-tag="fleeting-note"],span[data-tag="voice-note"]):not(.expandedNodeContent) > .listContentItem:active {
+        background-color: #FFF2CC;  /* 点击时稍深的米黄色 */
+        transform: translateY(0px);
+        box-shadow: 0 2px 4px rgba(229, 174, 7, 0.1);
+    }
+
+    /* 主要内容样式 add for context: video, article, project, trip, book ... */
+    
+    
+}
