@@ -334,6 +334,53 @@
     }
 
     /* 主要内容样式 add for context: video, article, project, trip, book ... */
-    
+    /* 基础间距 */
+    .NodeAsListElement-module_main__kwj8T .listContentItem:has(span[data-tag="video"]) {
+        margin-bottom: 3px;
+    }
+
+    /* 基础文字样式 */
+    .listContentItem:has(span[data-tag="video"]) {
+        background: #FFF0F0;  /* 浅红色背景 */
+        color: #000000 !important;  /* 黑色文字 */
+        font-style: normal;
+    }
+
+    /* 非展开状态的列表项样式 */
+    :has(span[data-tag="video"]):not(.expandedNodeContent) > .listContentItem {
+        background-color: #FFF0F0;  /* 浅红色背景 */
+        border-left: 3px solid #CC0000;  /* 红色左边框 */
+        border-radius: 3px;
+        padding: 8px 14px;
+    }
+
+    /* 深色模式样式 */
+    .isDarkMode :has(span[data-tag="video"]):not(.expandedNodeContent) > .listContentItem {
+        background-color: #FFF0F0;
+        color: #000000;
+        border-left: 3px solid #CC0000;
+    }
+
+    /* 悬停效果 */
+    :has(span[data-tag="video"]):not(.expandedNodeContent) > .listContentItem:hover {
+        background-color: #FFE5E5;  /* 稍深的浅红色 */
+        transition: all 0.2s ease;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(204, 0, 0, 0.1);
+    }
+
+    /* 深色模式悬停效果 */
+    .isDarkMode :has(span[data-tag="video"]):not(.expandedNodeContent) > .listContentItem:hover {
+        background-color: #FFE5E5;
+        box-shadow: 0 4px 8px rgba(204, 0, 0, 0.08);
+    }
+
+    /* 点击效果 */
+    :has(span[data-tag="video"]):not(.expandedNodeContent) > .listContentItem:active {
+        background-color: #FFDBDB;  /* 点击时更深的红色 */
+        transform: translateY(0px);
+        box-shadow: 0 2px 4px rgba(204, 0, 0, 0.1);
+    }
+
     
 }
